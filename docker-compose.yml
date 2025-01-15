@@ -4,7 +4,7 @@ version: '3'
 
 services:
   beacon-stub:
-    image: ghcr.io/sygmaprotocol/beacon-api-stub
+    image: ghcr.io/sprintertech/beacon-api-stub
     volumes:
       - "./stubs:/stubs"
     ports:
@@ -13,13 +13,13 @@ services:
       - STUB_DATA=/stubs/beacon.yml
 
   evm1:
-    image: ghcr.io/sygmaprotocol/sygma-x-solidity:1
+    image: ghcr.io/sprintertech/sygma-x-solidity:1
     container_name: evm1
     command: "--db data/ -h 0.0.0.0 -p 8545 --wallet.mnemonic 'myth like bonus scare over problem client lizard pioneer submit female collect'"
     ports:
       - "8545:8545"
   evm2:
-    image: ghcr.io/sygmaprotocol/sygma-x-solidity:2
+    image: ghcr.io/sprintertech/sygma-x-solidity:2
     command: "--db data/ -h 0.0.0.0 -p 8545 --wallet.mnemonic 'myth like bonus scare over problem client lizard pioneer submit female collect'"
     container_name: evm2
     ports:
